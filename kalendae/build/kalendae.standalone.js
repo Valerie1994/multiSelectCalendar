@@ -156,7 +156,7 @@ var Kalendae = function (targetElement, options) {
 		$header = util.make('div', {'class':classes.header + ' ' + (opts.dayHeaderClickable == true ? classes.dayActive : '')}, $cal);
 		i = 0;
 		do {
-			$span = util.make('span', {'data-day':i}, $header);
+            $span = util.make('span', {'data-day':i}, $header);
 
 			if (opts.dayHeaderClickable == true && opts.mode == 'multiple') {
 				$span.addEventListener("mouseover", function(e){
@@ -182,7 +182,7 @@ var Kalendae = function (targetElement, options) {
 		} while (++i < 7);
 
 		//individual day cells
-		$days = util.make('div', {'class':classes.days}, $cal);
+        $days = util.make('div', {'class':classes.days}, $cal);
 		i = 0;
 		dayNodes = [];
 		do {
@@ -191,10 +191,16 @@ var Kalendae = function (targetElement, options) {
 					$week = util.make('div', {'class': classes.week + ' clearfix'}, $days);
 					dayNodes.push($week);
 				}
-				util.make('span', {}, $week);
+                util.make('span', {}, $week);
 			} else {
-				dayNodes.push(util.make('span', {}, $days));
-			}
+                /* var node = document.createElement("SPAN");
+                var textnode = document.createTextNode("Water");
+                node.appendChild(textnode);
+                $days.appendChild(node); */
+                dayNodes.push(util.make('span', {}, $days));
+                // console.log('******$days ', $days);
+                console.log(dayNodes[0]);
+            }
 		} while (++i < 42);
 
 		//store each calendar view for easy redrawing
@@ -798,10 +804,10 @@ var util = Kalendae.util = {
 
 	$$: function (selector) {
 		return document.querySelectorAll(selector);
-	},
+    },
 
 	make: function (tagName, attributes, attach) {
-		var k, e = document.createElement(tagName);
+        var k, e = document.createElement(tagName);
 		if (!!attributes) for (k in attributes) if (attributes.hasOwnProperty(k)) e.setAttribute(k, attributes[k]);
 		if (!!attach) attach.appendChild(e);
 		return e;
