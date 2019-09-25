@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./kalendae/build/kalendae.css" type="text/css">
+    <script type='text/javascript' src='./kalendae/build/kalendae.standalone.js'></script>
+    <script type='text/javascript' src='./jquery.js'></script>
+    <title>啊啊啊啊啊啊啊啊啊啊啊</title>
+</head>
+<body>
+    <div class="auto-kal" data-kal="mode:'multiple'"></div>
+    <input id="chosenDates" type="text" class="auto-kal" data-kal="mode:'multiple'" style="width: 326px;height: 22px;">
+    <button onclick="clickHandleBtn()">打印选中日期数组</button>
+    <!-- 需要设置如果批量添加成功，就清除旧数据 -->
+</body>
+<script>
+    function clickHandleBtn() {
+        var chosenDates = $("#chosenDates").val();
+        var chosenDatesArray = chosenDates.split(", ");
+        console.log(chosenDatesArray);
+    }
+</script>
+</html>
